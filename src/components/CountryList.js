@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Search from './Search';
 import Filter from './Filter';
+import { useDarkMode } from '../components/DarkModeContext'; 
 
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
@@ -9,6 +10,13 @@ const CountryList = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [showBackButton, setShowBackButton] = useState(false);
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const { isDarkMode } = useDarkMode(); // use the 
+  
+
+  const darkModeStyles = {
+    backgroundColor: isDarkMode ? '#2b2b2b' : 'white',
+    color: isDarkMode ? '#ffffff' : 'black',
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,14 +90,15 @@ const CountryList = () => {
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className={`container mx-auto p-4`} style={darkModeStyles}>
       {showBackButton && (
-        <button
-          className="mt-2 mb-4 bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded"
-          onClick={handleBackButtonClick}
-        >
-          Back
-        </button>
+       <button
+       className="mt-2 mb-4 bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded flex items-center"
+       onClick={handleBackButtonClick}
+     >
+       <span className="mr-2">&larr;</span> Back
+     </button>
+     
       )}
       {selectedCountry ? (
         <div className="rounded-lg shadow-md flex flex-col">
@@ -155,8 +164,11 @@ const CountryList = () => {
         </div>
       ) : (
         <div>
+          <div className='flex justify-between'>
           <Search onSearch={handleSearch} />
           <Filter onFilterByRegion={filterByRegion} />
+          </div>
+
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {filteredCountries.length > 0 ? (
               filteredCountries.map((country, index) => (
@@ -172,9 +184,12 @@ const CountryList = () => {
                       className="w-72 h-48 mt-4 mr-2"
                     />
                     <p className="m-2">
-                      <strong className="text-gray-900 font-nunito-sans font-extrabold text-18 leading-26">
-                        {country.name.common}
-                      </strong>
+                    <strong
+  className={`text-${isDarkMode ? 'white' : 'gray-900'} font-nunito-sans font-extrabold text-18 leading-26`}
+>
+  {country.name.common}
+</strong>
+
                       <br />
                       <br />
                       <strong>Population:</strong>{' '}
@@ -199,3 +214,4 @@ const CountryList = () => {
 };
 
 export default CountryList;
+

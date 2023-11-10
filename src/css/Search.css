@@ -1,0 +1,14 @@
+/* Assuming you have a class named 'custom-input' */
+.custom-input {
+    width: 500px;
+    padding: 10px; 
+    padding-left: 50px;
+  }
+
+  .custom-input::placeholder {
+    color: #888; /* Set the color of the placeholder text */
+    font-style: italic; 
+    
+
+  }
+  

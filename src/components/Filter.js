@@ -17,7 +17,6 @@ const Filter = ({ onFilterByRegion }) => {
         onChange={handleChange}
         className="p-2 border rounded"
       >
-        <option value="All">All</option>
         <option value="Africa">Africa</option>
         <option value="Americas">Americas</option>
         <option value="Asia">Asia</option>
