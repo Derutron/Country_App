@@ -1,31 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Filter = ({ onFilter }) => {
-  const regions = [
-    'All',
-    'Africa',
-    'Americas',
-    'Asia',
-    'Europe',
-    'Oceania',
-    'Antarctic',
-  ];
+const Filter = ({ onFilterByRegion }) => {
+  const [selectedRegion, setSelectedRegion] = useState('All');
+
+  const handleChange = (event) => {
+    const region = event.target.value;
+    setSelectedRegion(region);
+    onFilterByRegion(region); 
+  };
 
   return (
-    <div className="mb-4">
-      <label htmlFor="region" className="mr-2 font-bold">
-        Filter by Region:
-      </label>
+    <div className="mt-4">
+      <label className="font-semibold mr-2">Filter by Region:</label>
       <select
-        id="region"
-        onChange={(e) => onFilter(e.target.value)}
+        value={selectedRegion}
+        onChange={handleChange}
         className="p-2 border rounded"
       >
-        {regions.map((region, index) => (
-          <option key={index} value={region.toLowerCase()}>
-            {region}
-          </option>
-        ))}
+        <option value="All">All</option>
+        <option value="Africa">Africa</option>
+        <option value="Americas">Americas</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Antarctic">Antarctic</option>
       </select>
     </div>
   );
