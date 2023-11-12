@@ -4,3 +4,62 @@
   color: #ffffff;
   /* Add more styles for dark mode */
 }
+
+
+
+.text1{
+  margin-left: 230px;
+}
+.text2{
+  margin-right: 210px;
+}  
+
+
+
+
+@media screen and (max-width: 768px) {
+  .header {
+    width: 100%;
+  }
+
+  .text1{
+    margin-left: 70px;
+  }
+
+  .text2{
+    margin-right: 50px;
+  }
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .text1{
+    margin-left: 130px;
+  }
+
+  .text2{
+    margin-right: 120px;
+  }
+}
+
+
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+  .text1{
+    margin-left: 110px;
+  }
+
+  .text2{
+    margin-right: 100px;
+  }
+} 
+
+
+@media screen and (min-width: 1201px) and (max-width: 1500px) {
+  .text1{
+    margin-left: 110px;
+  }
+
+  .text2{
+    margin-right: 100px;
+  }
+} 

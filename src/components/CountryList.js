@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Search from './Search';
 import Filter from './Filter';
+import '../css/CountryList.css'
 import { useDarkMode } from '../components/DarkModeContext'; 
 
 const CountryList = () => {
@@ -90,18 +91,17 @@ const CountryList = () => {
   }
 
   return (
-    <div className={`container mx-auto p-4`} style={darkModeStyles}>
+    <div className={`container m-auto p-4`} style={darkModeStyles}>
       {showBackButton && (
        <button
-       className="mt-2 mb-4 bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded flex items-center"
-       onClick={handleBackButtonClick}
-     >
-       <span className="mr-2">&larr;</span> Back
-     </button>
+          className="mt-2 mb-4 bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded flex items-center"
+          onClick={handleBackButtonClick}>
+          <span className="mr-2">&larr;</span> Back
+      </button>
      
       )}
       {selectedCountry ? (
-        <div className="rounded-lg shadow-md flex flex-col">
+        <div className="cards rounded-lg shadow-md flex flex-col">
           <div className="flex flex-col md:flex-row gap-20">
             <div className="w-full md:w-1/2">
               <img
@@ -151,7 +151,7 @@ const CountryList = () => {
                   (borderCountry) => (
                     <button
                       key={borderCountry}
-                      className="border p-1 rounded bg-white-200 hover:bg-blue-300 text-blue-800 hover:text-white"
+                      className="no-border p-1 rounded bg-white-200 hover:bg-blue-200 text-blue-800 hover:text-white"
                       onClick={() => handleBorderCountryClick(borderCountry)}
                     >
                       {borderCountry}
@@ -164,9 +164,9 @@ const CountryList = () => {
         </div>
       ) : (
         <div>
-          <div className='flex justify-between'>
-          <Search onSearch={handleSearch} />
-          <Filter onFilterByRegion={filterByRegion} />
+          <div className='searchfilter flex justify-between'>
+            <Search onSearch={handleSearch} />
+            <Filter onFilterByRegion={filterByRegion} />
           </div>
 
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -177,30 +177,26 @@ const CountryList = () => {
                   className="rounded-lg shadow-md cursor-pointer"
                   onClick={() => handleCountryClick(country)}
                 >
-                  <div className="flex-col items-center hover:bg-gray-200">
-                    <img
-                      src={country.flags.png}
-                      alt={`${country.name.common} Flag`}
-                      className="w-72 h-48 mt-4 mr-2"
-                    />
-                    <p className="m-2">
-                    <strong
-  className={`text-${isDarkMode ? 'white' : 'gray-900'} font-nunito-sans font-extrabold text-18 leading-26`}
->
-  {country.name.common}
-</strong>
+     <div className={`flex-col items-center hover:bg-${isDarkMode ? 'gray-300' : 'gray-300'}`}>
+  <img
+    src={country.flags.png}
+    alt={`${country.name.common} Flag`}
+    className="w-72 h-48 m-auto"/>
 
-                      <br />
-                      <br />
-                      <strong>Population:</strong>{' '}
-                      {country.population.toLocaleString()}
-                      <br />
-                      <strong>Region:</strong> {country.region}
-                      <br />
-                      <strong>Capital:</strong> {country.capital}
-                      <br />
-                    </p>
-                  </div>
+  <p className="m-2">
+    <strong
+      className={`text m-auto ${isDarkMode ? 'white' : 'gray-900'} font-nunito-sans font-extrabold text-18 leading-26 transition-colors duration-300 hover:text-${isDarkMode ? 'blue' : 'gray-300'}`}>
+      {country.name.common}
+    </strong>
+
+    <br /><br />
+    <strong>Population:</strong>{' '}
+    {country.population.toLocaleString()}<br />
+    <strong>Region:</strong> {country.region}<br />
+    <strong>Capital:</strong> {country.capital}<br />
+  </p>
+</div>
+
                 </li>
               ))
             ) : (
@@ -214,4 +210,9 @@ const CountryList = () => {
 };
 
 export default CountryList;
+
+
+
+
+
 

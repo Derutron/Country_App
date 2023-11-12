@@ -1,0 +1,51 @@
+.flex-col.items-center:hover {
+    background-color: #c7d2ff; /* Light gray for non-dark mode */
+  }
+  
+  .flex-col.items-center:hover img {
+    border-color: #64748b; /* Border color for non-dark mode */
+  }
+  
+  .flex-col.items-center:hover strong {
+    color: #1a202c; /* Text color for non-dark mode */
+  }
+  
+  .flex-col.items-center:hover strong:hover {
+    color: #4299e1; /* Hover text color for non-dark mode */
+  }
+  
+  /* Dark mode styles */
+  
+  .dark-mode .flex-col.items-center:hover {
+    background-color: #4a5568; /* Dark gray for dark mode */
+  }
+  
+  .dark-mode .flex-col.items-center:hover img {
+    border-color: #cbd5e0; /* Border color for dark mode */
+  }
+  
+  .dark-mode .flex-col.items-center:hover strong {
+    color: #f7fafc; /* Text color for dark mode */
+  }
+  
+  .dark-mode .flex-col.items-center:hover strong:hover {
+    color: #a0aec0; /* Hover text color for dark mode */
+  }
+
+  .cards{
+    height: 600px;
+  }
+  
+
+  @media screen and (max-width: 576px)  {
+    .searchfilter {
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+      width: 150px;
+    }
+
+    .text{
+      margin: 50px;
+    }
+  }

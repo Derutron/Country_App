@@ -1,4 +1,4 @@
-/* Assuming you have a class named 'custom-input' */
+
 .custom-input {
     width: 500px;
     padding: 10px; 
@@ -11,4 +11,39 @@
     
 
   }
+
+
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+
+  .custom-input {
+    font-size: 14px;
+    width: 500px;
+  }
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .custom-input {
+   
+    font-size: 14px;
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px)  {
+  .custom-input {
+   
+    font-size: 12px;
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 576px)  {
+  .custom-input {
+   
+    font-size: 12px;
+    width: 200px;
+    margin: 0px;
+  }
+}
   

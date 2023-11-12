@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import '../css/Search.css'
+import { useDarkMode } from './DarkModeContext'; 
+import '../css/Search.css';
 
 const Search = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const { isDarkMode } = useDarkMode(); // Use the dark mode context hook
 
   const handleSearch = (e) => {
     e.preventDefault(); // Prevents the form from submitting and refreshing the page
@@ -10,14 +12,14 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <form className="my-4 flex items-center" onSubmit={handleSearch} style={{ marginLeft: '26px', border: 'none'}}>
+    <form className={`my-4 flex items-center ${isDarkMode ? 'dark' : ''}`} onSubmit={handleSearch} style={{ marginLeft: '26px', border: 'none'}}>
       <div className="relative">
         <button
           type="submit"
-          className="absolute bottom-1 right-21 mt-2 mr-3 ml-2 px-2 py-1 bg-white text-black rounded-md"
+          className={`absolute bottom-1 right-21 mt-2 mr-3 ml-2 px-2 py-1 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} rounded-md`}
         >
           <svg
-            className="w-6 h-6"
+            className={`w-6 h-6 ${isDarkMode ? 'text-white' : 'text-black'}`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -33,14 +35,12 @@ const Search = ({ onSearch }) => {
         </button>
 
         <input
-  type="text"
-  placeholder="Search for a country..."
-  className="custom-input rounded-md"
-  value={searchTerm}
-  onChange={(e) => setSearchTerm(e.target.value)}
-/>
-
-
+          type="text"
+          placeholder="Search for a country..."
+          className={`custom-input rounded-md  ${isDarkMode ? 'bg-gray-900 text-white' : 'border'}`}
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
     </form>
   );

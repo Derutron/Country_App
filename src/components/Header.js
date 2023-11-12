@@ -7,9 +7,9 @@ const Header = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <div className={`header w-1440 h-20 flex-shrink-0 flex justify-between ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
-      <p className={`text1 text-${isDarkMode ? 'white' : 'black-700'} font-nunito-sans text-2xl font-extrabold ml-20 mt-4`}>Where in the world?</p>
-      <div className='group5 h-fit flex justify-center items-start gap-2 mt-4 mr-20'>
+    <div className={`header flex justify-between ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
+      <p className={`text1 text-${isDarkMode ? 'white' : 'black-700'} font-nunito-sans text-2xl font-extrabold mt-4`}>Where in the world?</p>
+      <div className='group5 h-fit flex justify-between items-start gap-2 mt-4'>
         <img src={halfmoonIcon} alt="Halfmoon Icon" className="w-5 h-5" onClick={toggleDarkMode} style={{ cursor: 'pointer' }} />
         <p className={`text2 text-${isDarkMode ? 'white' : 'gray-700'} font-semibold text-base`}>Dark Mode</p>
       </div>
