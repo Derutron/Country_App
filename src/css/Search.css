@@ -13,13 +13,23 @@
   }
 
 
+  @media screen and (min-width: 1201px) and (max-width: 1500px) {
+    .custom-input {
+      font-size: 14px;
+      width: 500px;
+    }
+  } 
+
+
 @media screen and (min-width: 993px) and (max-width: 1200px) {
 
   .custom-input {
     font-size: 14px;
-    width: 500px;
+    width: 400px;
   }
 }
+
+
 
 
 @media screen and (min-width: 769px) and (max-width: 992px) {
@@ -38,12 +48,15 @@
   }
 }
 
-@media screen and (min-width: 300px) and (max-width: 576px)  {
+@media screen and (max-width: 576px)  {
   .custom-input {
    
     font-size: 12px;
     width: 200px;
-    margin: 0px;
+    
+    /* position: absolute;
+    left: 5px; */
   }
 }
-  
+
+
