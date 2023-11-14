@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Country_App/static/css/main.44ab5ea1.css",
-    "main.js": "/Country_App/static/js/main.62c2b764.js",
+    "main.css": "/Country_App/static/css/main.be638809.css",
+    "main.js": "/Country_App/static/js/main.ea528106.js",
     "static/js/787.d0fbee60.chunk.js": "/Country_App/static/js/787.d0fbee60.chunk.js",
     "index.html": "/Country_App/index.html",
     "static/media/half_moon.svg": "/Country_App/static/media/half_moon.cb42c7482949de0e6e38c87e300e1b1f.svg",
-    "main.44ab5ea1.css.map": "/Country_App/static/css/main.44ab5ea1.css.map",
-    "main.62c2b764.js.map": "/Country_App/static/js/main.62c2b764.js.map",
+    "main.be638809.css.map": "/Country_App/static/css/main.be638809.css.map",
+    "main.ea528106.js.map": "/Country_App/static/js/main.ea528106.js.map",
     "787.d0fbee60.chunk.js.map": "/Country_App/static/js/787.d0fbee60.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.44ab5ea1.css",
-    "static/js/main.62c2b764.js"
+    "static/css/main.be638809.css",
+    "static/js/main.ea528106.js"
   ]
 }
