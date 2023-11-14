@@ -33,11 +33,43 @@
   }
 
   .cards{
-    height: 600px;
+    height: 100%;
+  }
+
+  .darkcard{
+    height: 800px;
   }
   
 
   @media screen and (max-width: 576px)  {
+   
+    
+   .searchfilter {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    width: 150px;
+  }
+
+  .text{
+    margin: 50px;
+  }
+
+  }  
+  
+  
+  
+  /* Responsive styles for small screens */
+  @media screen and (max-width: 767px) {
+    .smallscreen {
+      display: block;
+    }
+  
+    /* .smallscreen .text-lg,
+    .smallscreen .w-400 {
+      width: 100%; 
+    } */
+
     .searchfilter {
       display: flex;
       flex-direction: column;
@@ -45,7 +77,8 @@
       width: 150px;
     }
 
-    .text{
-      margin: 50px;
-    }
   }
+
+
+
+

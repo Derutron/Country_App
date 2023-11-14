@@ -11,7 +11,7 @@ function App() {
  
   return (
     <DarkModeProvider>
-      <div className={`App ${isDarkMode ? 'dark-mode' : ''}`}>
+      <div className={`App ${isDarkMode ? 'dark-mode w-full' : ''}`}>
         <Header/>
         <CountryList/>
       </div>

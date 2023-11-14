@@ -17,7 +17,7 @@ const Filter = ({ onFilterByRegion }) => {
       <select
         value={selectedRegion}
         onChange={handleChange}
-        className={`filterinput p-2 no-border rounded ${isDarkMode ? 'bg-gray-900 text-white' : 'border'}`}
+        className={`filterinput p-2 no-border rounded ${isDarkMode ? 'bg-gray-800 text-white' : 'border'}`}
       >
         <option value="All">Filter by Region</option>
         <option value="Africa">Africa</option>

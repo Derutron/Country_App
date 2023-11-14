@@ -16,7 +16,7 @@ const Search = ({ onSearch }) => {
       <div className="relative">
         <button
           type="submit"
-          className={`absolute bottom-1 right-21 mt-2 mr-3 ml-2 px-2 py-1 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} rounded-md`}
+          className={`absolute bottom-1 right-21 mt-2 mr-3 ml-2 px-2 py-1 ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'} rounded-md`}
         >
           <svg
             className={`w-6 h-6 ${isDarkMode ? 'text-white' : 'text-black'}`}
@@ -37,7 +37,7 @@ const Search = ({ onSearch }) => {
         <input
           type="text"
           placeholder="Search for a country..."
-          className={`custom-input rounded-md  ${isDarkMode ? 'bg-gray-900 text-white' : 'border'}`}
+          className={`custom-input rounded-md  ${isDarkMode ? 'bg-gray-800 text-white' : 'border'}`}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />

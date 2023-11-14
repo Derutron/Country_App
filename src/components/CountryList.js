@@ -14,10 +14,10 @@ const CountryList = () => {
   const { isDarkMode } = useDarkMode(); // use the 
   
 
-  const darkModeStyles = {
-    backgroundColor: isDarkMode ? '#2b2b2b' : 'white',
-    color: isDarkMode ? '#ffffff' : 'black',
-  };
+  // const darkModeStyles = {
+  //   backgroundColor: isDarkMode ? '#2b2b2b' : 'white',
+  //   color: isDarkMode ? '#ffffff' : 'black',
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -91,7 +91,7 @@ const CountryList = () => {
   }
 
   return (
-    <div className={`container m-auto p-4`} style={darkModeStyles}>
+    <div className={` m-auto pl-6 pr-10 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
       {showBackButton && (
        <button
           className="mt-2 mb-4 bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded flex items-center"
@@ -101,89 +101,97 @@ const CountryList = () => {
      
       )}
       {selectedCountry ? (
-        <div className="cards rounded-lg shadow-md flex flex-col">
-          <div className="flex flex-col md:flex-row gap-20">
-            <div className="w-full md:w-1/2">
-              <img
-                src={selectedCountry.flags.png}
-                alt={`${selectedCountry.name.common} Flag`}
-                className="w-full"
-              />
-            </div>
+        <div className={`cards rounded-lg flex flex-col ${isDarkMode ? 'darkcard ' : ''}`}>
+        <div className="flex flex-col md:flex-row gap-20">
+          <div className="w-full md:w-1/2">
+            <img
+              src={selectedCountry.flags.png}
+              alt={`${selectedCountry.name.common} Flag`}
+              className="w-full"
+            />
+          </div>
+          <div>
             <div>
-              <div>
-                <h1 className="font-bold mb-2">
-                  {selectedCountry.name.common}
-                </h1>
+              <h1 className={`font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                {selectedCountry.name.common}
+              </h1>
+            </div>
+            <br />
+            <div className="smallscreen flex column gap-10 w-full">
+              <div className={`w-full md:w-1/2 text-lg ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                <strong>Native Name:</strong> {selectedCountry.name.common}
+                <br />
+                <strong>Population:</strong>{' '}
+                {selectedCountry.population.toLocaleString()}
+                <br />
+                <strong>Region:</strong> {selectedCountry.region}
+                <br />
+                <strong>Subregion:</strong> {selectedCountry.subregion}
+                <br />
+                <strong>Capital:</strong> {selectedCountry.capital}
+                <br />
               </div>
-              <br />
-              <div className="flex column gap-10 w-full">
-                <div className="w-full md:w-1/2 text-lg">
-                  <strong>Native Name:</strong> {selectedCountry.name.common}
-                  <br />
-                  <strong>Population:</strong>{' '}
-                  {selectedCountry.population.toLocaleString()}
-                  <br />
-                  <strong>Region:</strong> {selectedCountry.region}
-                  <br />
-                  <strong>Subregion:</strong> {selectedCountry.subregion}
-                  <br />
-                  <strong>Capital:</strong> {selectedCountry.capital}
-                  <br />
-                </div>
-                <div className="w-400 text-lg">
-                  <strong>Top Level Domain:</strong> {selectedCountry.tld}
-                  <br />
-                  <strong>Currencies:</strong>{' '}
-                  {Object.values(selectedCountry.currencies)
-                    .map((currency) => currency.name)
-                    .join(', ')}
-                  <br />
-                  <strong>Languages:</strong>{' '}
-                  {Object.values(selectedCountry.languages).join(', ')}
-                  <br />
-                </div>
+              <div className={`w-400 text-lg ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                <strong>Top Level Domain:</strong> {selectedCountry.tld}
+                <br />
+                <strong>Currencies:</strong>{' '}
+                {Object.values(selectedCountry.currencies)
+                  .map((currency) => currency.name)
+                  .join(', ')}
+                <br />
+                <strong>Languages:</strong>{' '}
+                {Object.values(selectedCountry.languages).join(', ')}
+                <br />
               </div>
-              <br />
-              <div className="text-lg gap-2">
-                <strong>Border Countries:</strong>{' '}
-                {getBorderCountryNames(selectedCountry.borders, countries).map(
-                  (borderCountry) => (
-                    <button
-                      key={borderCountry}
-                      className="no-border p-1 rounded bg-white-200 hover:bg-blue-200 text-blue-800 hover:text-white"
-                      onClick={() => handleBorderCountryClick(borderCountry)}
-                    >
-                      {borderCountry}
-                    </button>
-                  )
-                )}
-              </div>
+            </div>
+            <br />
+            <div className={`text-lg gap-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+              <strong>Border Countries:</strong>{' '}
+              {getBorderCountryNames(selectedCountry.borders, countries).map(
+                (borderCountry) => (
+                  <button
+  key={borderCountry}
+  className={`no-border p-2 rounded m-2 ${isDarkMode ? 'bg-gray-800 hover:bg-blue-200 text-white' : 'bg-gray-200 hover:bg-blue-200 text-blue-800 hover:text-white'}`}
+  onClick={() => handleBorderCountryClick(borderCountry)}
+>
+  {borderCountry}
+</button>
+
+                )
+              )}
             </div>
           </div>
         </div>
+      </div>
+      
+
+
       ) : (
+
+
         <div>
           <div className='searchfilter flex justify-between'>
             <Search onSearch={handleSearch} />
             <Filter onFilterByRegion={filterByRegion} />
           </div>
 
+
+
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {filteredCountries.length > 0 ? (
               filteredCountries.map((country, index) => (
                 <li
                   key={index}
-                  className="rounded-lg shadow-md cursor-pointer"
+                  className="rounded-lg cursor-pointer"
                   onClick={() => handleCountryClick(country)}
                 >
-     <div className={`flex-col items-center hover:bg-${isDarkMode ? 'gray-300' : 'gray-300'}`}>
+    <div className={`flex-col items-center ${isDarkMode ? 'bg-gray-800' : 'hover:bg-gray-100'}`}>
   <img
     src={country.flags.png}
     alt={`${country.name.common} Flag`}
-    className="w-72 h-48 m-auto"/>
+    className="w-full h-48 m-auto"/>
 
-  <p className="m-2">
+  <p className="m-4">
     <strong
       className={`text m-auto ${isDarkMode ? 'white' : 'gray-900'} font-nunito-sans font-extrabold text-18 leading-26 transition-colors duration-300 hover:text-${isDarkMode ? 'blue' : 'gray-300'}`}>
       {country.name.common}
