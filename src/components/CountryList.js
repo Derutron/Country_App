@@ -92,11 +92,11 @@ const CountryList = () => {
 
   return (
     
-    <div className={` m-auto pl-12 pr-10 pt-16 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
+    <div className={` m-auto pl-6 pr-10 pt-16 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
       {showBackButton && (
        
        <button
-  className={`mb-4 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-white hover:bg-blue-200 text-black'} font-bold py-2 px-4 rounded flex items-center`}
+  className={`mb-4 ml-5 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-white hover:bg-blue-200 text-black'} font-bold py-2 px-4 rounded flex items-center`}
   onClick={handleBackButtonClick}
 >
   <span className={`mr-2 mt-0 flex ${isDarkMode ? 'text-white' : 'text-black'}`}>&larr;</span> Back
@@ -107,7 +107,7 @@ const CountryList = () => {
 
           {/* Country details */}
       {selectedCountry ? (
-        <div className={`cards mt-2 pb-40 rounded-lg flex flex-col ${isDarkMode ? 'darkcard ' : ''}`}><br />
+        <div className={`cards mt-2 pb-40 pl-6 rounded-lg flex flex-col ${isDarkMode ? 'darkcard ' : ''}`}><br />
         <div className="flex flex-col md:flex-row gap-20">
           <div className="w-full md:w-1/2">
             <img
