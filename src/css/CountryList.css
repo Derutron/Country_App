@@ -37,7 +37,7 @@
   }
 
   .darkcard{
-    height: 800px;
+    height: 100%;
   }
   
 
@@ -65,10 +65,9 @@
       display: block;
     }
   
-    /* .smallscreen .text-lg,
-    .smallscreen .w-400 {
-      width: 100%; 
-    } */
+    .cards {
+      height: 100%; 
+    }
 
     .searchfilter {
       display: flex;

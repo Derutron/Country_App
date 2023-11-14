@@ -91,17 +91,23 @@ const CountryList = () => {
   }
 
   return (
-    <div className={` m-auto pl-6 pr-10 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
+    
+    <div className={` m-auto pl-12 pr-10 pt-16 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
       {showBackButton && (
+       
        <button
-          className="mt-2 mb-4 bg-blue-100 hover:bg-blue-200 text-black font-bold py-2 px-4 rounded flex items-center"
-          onClick={handleBackButtonClick}>
-          <span className="mr-2">&larr;</span> Back
-      </button>
-     
+  className={`mb-4 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-white hover:bg-blue-200 text-black'} font-bold py-2 px-4 rounded flex items-center`}
+  onClick={handleBackButtonClick}
+>
+  <span className={`mr-2 mt-0 flex ${isDarkMode ? 'text-white' : 'text-black'}`}>&larr;</span> Back
+</button>
+
       )}
+
+
+          {/* Country details */}
       {selectedCountry ? (
-        <div className={`cards rounded-lg flex flex-col ${isDarkMode ? 'darkcard ' : ''}`}>
+        <div className={`cards mt-2 pb-40 rounded-lg flex flex-col ${isDarkMode ? 'darkcard ' : ''}`}><br />
         <div className="flex flex-col md:flex-row gap-20">
           <div className="w-full md:w-1/2">
             <img
@@ -150,13 +156,11 @@ const CountryList = () => {
               {getBorderCountryNames(selectedCountry.borders, countries).map(
                 (borderCountry) => (
                   <button
-  key={borderCountry}
-  className={`no-border p-2 rounded m-2 ${isDarkMode ? 'bg-gray-800 hover:bg-blue-200 text-white' : 'bg-gray-200 hover:bg-blue-200 text-blue-800 hover:text-white'}`}
-  onClick={() => handleBorderCountryClick(borderCountry)}
->
-  {borderCountry}
-</button>
-
+                    key={borderCountry}
+                    className={`no-border p-2 rounded m-2 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-600 text-white' : 'bg-gray-200 hover:bg-blue-200 text-black hover:text-white'}`}
+                    onClick={() => handleBorderCountryClick(borderCountry)}>
+                    {borderCountry}
+                  </button>
                 )
               )}
             </div>
@@ -168,7 +172,7 @@ const CountryList = () => {
 
       ) : (
 
-
+        // Search and filter
         <div>
           <div className='searchfilter flex justify-between'>
             <Search onSearch={handleSearch} />
@@ -176,7 +180,7 @@ const CountryList = () => {
           </div>
 
 
-
+            {/* All Countries */}
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {filteredCountries.length > 0 ? (
               filteredCountries.map((country, index) => (
